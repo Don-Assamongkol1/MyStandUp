@@ -6,6 +6,10 @@ FONT SIZE SYSTEM (px)
 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
 */
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -67,6 +71,7 @@ a:active {
   border-radius: 20px;
   padding: 20px;
   width: 420px;
+  /* flex-shrink: 0; so that columns don't shrink */
 
   display: flex;
   flex-direction: column;
@@ -88,25 +93,49 @@ h3 {
 .ticket-wrapper {
   border: 2px solid #343a40;
   border-radius: 20px;
-  /* padding: 10px 20px; */
+  width: 376px;
+  height: 59.5px;
+  overflow: hidden;
+
   display: grid;
   grid-template-columns: auto 40px;
 }
 
 .standup-color {
   background-color: #00ffc5;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
+  /* background-color: #d55672; */
 }
 
 .standup-text {
+  width: 317px;
   margin: 5px 5px 5px 10px;
 }
 
-.input-text {
+textarea {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   border: none;
   background: transparent;
   outline: 0;
+  resize: none;
+  overflow: hidden;
+
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
+
+  width: 100%;
+  font-size: 16px;
+}
+
+.zero-margin {
+  box-sizing: border-box;
+  padding: 2px;
+  display: block;
+  overflow-wrap: break-word;
+  margin: 0;
+  width: 100%;
 }
 
 /* for fail days #C44536 */

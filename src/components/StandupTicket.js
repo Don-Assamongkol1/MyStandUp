@@ -2,24 +2,46 @@ import React from 'react';
 import { useState } from 'react';
 
 export default function StandupTicket() {
-  const [content, setContent] = useState('blah');
+  const [isEditing, setIsEditing] = useState(true);
+  const [content, setContent] = useState('');
 
-  function handleSubmit() {
-    console.log('submitted!');
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('current content: ', content);
+    setIsEditing(false);
+  };
+
+  const onEnterPress = (e) => {
+    if (e.keyCode === 13 && e.shiftKey === false) {
+      e.preventDefault();
+      setContent(e.target.value);
+      setIsEditing(false);
+    }
+  };
+
+  if (isEditing) {
+    return (
+      <div className="ticket-wrapper">
+        <div className="standup-text">
+          <form onSubmit={handleSubmit}>
+            <textarea
+              className="textarea"
+              maxLength={80}
+              required="required"
+              placeholder="Write your standup here!"
+              onKeyDown={onEnterPress}
+            ></textarea>
+          </form>
+        </div>
+        <div className="standup-color"></div>
+      </div>
+    );
   }
 
   return (
     <div className="ticket-wrapper">
       <div className="standup-text">
-        <form action="">
-          <input
-            type="text"
-            className="input-text"
-            // onChange={() => setContent({ value: event.target.value })}
-          />
-          Y: Dev test scenarios from CSV completed. T: Finishing required
-          updates & exploring task set-up. B: None.
-        </form>
+        <p className="zero-margin">{content}</p>
       </div>
       <div className="standup-color"></div>
     </div>
@@ -31,3 +53,12 @@ export default function StandupTicket() {
 
 // want the form to go down if text overflows
 // change form font
+
+/* <input
+  type="text"
+  placeholder="Write your standup for today here!"
+  className="input-text"
+  required
+  onChange={(e) => setContent(e.target.value)}
+  value={content}
+/> */
