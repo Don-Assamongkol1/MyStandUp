@@ -1,4 +1,3 @@
-- CSS animation on Enter do box highlight
 - move on to backend 
   - connect models, have some dummy data
   - functionality: auto create, auto save

@@ -4,6 +4,7 @@ import { useState } from 'react';
 export default function StandupTicket() {
   const [isEditing, setIsEditing] = useState(true);
   const [content, setContent] = useState('');
+  const [animationClass, setAnimationClass] = useState('ticket-wrapper');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,12 +17,14 @@ export default function StandupTicket() {
       e.preventDefault();
       setContent(e.target.value);
       setIsEditing(false);
+      console.log('clicked enter!');
+      setAnimationClass('ticket-wrapper border-animation');
     }
   };
 
   if (isEditing) {
     return (
-      <div className="ticket-wrapper">
+      <div className={animationClass}>
         <div className="standup-text">
           <form onSubmit={handleSubmit}>
             <textarea
@@ -39,7 +42,7 @@ export default function StandupTicket() {
   }
 
   return (
-    <div className="ticket-wrapper">
+    <div className={animationClass}>
       <div className="standup-text">
         <p className="zero-margin">{content}</p>
       </div>
@@ -47,18 +50,3 @@ export default function StandupTicket() {
     </div>
   );
 }
-
-// {/* Y: Dev test scenarios from CSV completed. T: Finishing required updates
-//       & exploring task set-up. B: None. */}
-
-// want the form to go down if text overflows
-// change form font
-
-/* <input
-  type="text"
-  placeholder="Write your standup for today here!"
-  className="input-text"
-  required
-  onChange={(e) => setContent(e.target.value)}
-  value={content}
-/> */
