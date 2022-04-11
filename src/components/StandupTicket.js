@@ -31,7 +31,7 @@ export default function StandupTicket() {
               className="textarea"
               maxLength={80}
               required="required"
-              placeholder="Write your standup here!"
+              placeholder="Write your standup for Apr 11 here!"
               onKeyDown={onEnterPress}
             ></textarea>
           </form>

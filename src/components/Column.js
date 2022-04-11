@@ -1,4 +1,5 @@
 import React from 'react';
+import SeeMoreButton from './SeeMoreButton';
 import StandupTicket from './StandupTicket';
 
 export default function Column() {
@@ -13,6 +14,7 @@ export default function Column() {
         <StandupTicket />
         <StandupTicket />
       </div>
+      <SeeMoreButton />
     </div>
   );
 }
