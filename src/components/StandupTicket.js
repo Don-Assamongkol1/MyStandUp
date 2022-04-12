@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 
-export default function StandupTicket() {
-  const [isEditing, setIsEditing] = useState(true);
+export default function StandupTicket({ canEdit }) {
+  const [isEditing, setIsEditing] = useState(canEdit);
   const [content, setContent] = useState('');
   const [animationClass, setAnimationClass] = useState('ticket-wrapper');
 
