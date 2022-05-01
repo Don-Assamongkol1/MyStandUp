@@ -7,12 +7,14 @@ export default function Column({ name }) {
   useEffect(() => {
     fetch('/tickets/', {})
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => console.log('front end is connected to backend'))
 
       .catch((error) => {
         console.log('Error: ', error);
       });
   }, []);
+  // Query the backend from here, grab all the most recent tickets, and
+  // pass it down to the standup tickets
 
   return (
     <div className="column">

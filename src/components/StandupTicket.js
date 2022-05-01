@@ -25,16 +25,12 @@ export default function StandupTicket({ canEdit }) {
   };
 
   const onEnterPress = (e) => {
+    setContent(e.target.value);
     if (e.keyCode === 13 && e.shiftKey === false) {
-      console.log('e.target.value: ', e.target.value);
-      setContent(e.target.value);
       e.preventDefault();
       setAnimationClass('ticket-wrapper border-animation');
       // TODO: move focus from this item s.t. we don't get blinking thing inside
-
-      setTimeout(() => console.log('content: ', content), 1000);
-
-      // sendDataToBackEnd();
+      sendDataToBackEnd();
     } else {
       /* we clicked on another key, thus modifying the content. Thus on next enter,
       we'll want to show the animation */
